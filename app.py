@@ -1,4 +1,4 @@
-import imp
+
 import requests
 import pandas as pd
 from prophet import Prophet
@@ -28,3 +28,4 @@ def predictCryptoPrice(coinId):
     print(forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(7))
     return forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(7).to_dict(orient='records')
     
+
