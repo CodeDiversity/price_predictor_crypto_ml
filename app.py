@@ -9,13 +9,13 @@ app = Flask(__name__)
 
 @app.route('/predict/<coinId>')
 def predict(coinId):
-    results = main(coinId)
+    results = predictCryptoPrice(coinId)
     return jsonify(results)
 
 if __name__ == '__app__':
     app.run()
 
-def main(coinId):
+def predictCryptoPrice(coinId):
     coinId = coinId
     response = requests.get(f"https://api.coingecko.com/api/v3/coins/{coinId}/market_chart?vs_currency=usd&days=1095&interval=daily")
     data = response.json()
